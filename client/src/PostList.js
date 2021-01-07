@@ -5,9 +5,10 @@ import CommentList from './CommentList';
 
 export default () => {
     const [posts, setPosts] = useState({});
-
+    console.log("hello")
     const fetchPosts = async () => {
-        const res = await axios.get('http://localhost:4002/posts');
+        const res = await axios.get('http://posts.com/posts');
+        console.log(res);
         setPosts(res.data);
 
     }
@@ -17,10 +18,11 @@ export default () => {
     }, []);
 
     const renderedPosts = Object.values(posts).map(post => {
-        return <div 
-            className='card' 
-            style={{width:'30%', marginBottom: '20px'}}
-            key = {post.id}
+        console.log(post)
+        return <div
+            className='card'
+            style={{ width: '30%', marginBottom: '20px' }}
+            key={post.id}
         >
             <div className='card-body'>
                 <h3>{post.title}</h3>

@@ -18,11 +18,11 @@ app.post('/posts/:id/comments', async (req, res) => {
     const commentId = randomBytes(4).toString('hex');
     const { content } = req.body;
     const comments = commentsByPostId[req.params.id] || [];
-    comments.push({id: commentId, content, status: "pending"})
+    comments.push({ id: commentId, content, status: "pending" })
     commentsByPostId[req.params.id] = comments;
 
     // create new event to event bus (4005)
-    await axios.post('http://localhost:4005/events', {
+    await axios.post('http://event-bus-srv:4005/events', {
         type: 'CommentCreated',
         data: {
             id: commentId,
@@ -30,7 +30,7 @@ app.post('/posts/:id/comments', async (req, res) => {
             postId: req.params.id,
             status: "pending"
         }
-   });
+    });
 
     res.status(201).send(comments);
 
@@ -40,7 +40,7 @@ app.post('/events', async (req, res) => {
 
     const { type, data } = req.body;
 
-    if(type == 'CommentModerated'){
+    if (type == 'CommentModerated') {
         const { postId, id, status, content } = data;
         const comments = commentsByPostId[postId];
 
@@ -49,7 +49,7 @@ app.post('/events', async (req, res) => {
         })
         comment.status = status;
 
-        await axios.post('http://localhost:4005/events', {
+        await axios.post('http://event-bus-srv:4005/events', {
             type: 'CommentUpdated',
             data: {
                 id: id,
@@ -57,7 +57,7 @@ app.post('/events', async (req, res) => {
                 postId: postId,
                 status: status
             }
-       });
+        });
 
     }
 
@@ -65,6 +65,6 @@ app.post('/events', async (req, res) => {
     res.send({});
 })
 
-app.listen(4001, ()=> {
+app.listen(4001, () => {
     console.log('Listening on 4001');
 });
