@@ -1,6 +1,6 @@
 # mini-microservices-app-template
 ## A simple template I learn in Udemy Course on how to build microservices app, and Dockerize it with Kubernetes and Skaffold. For full explanation, refer to the Udemy Course: https://www.udemy.com/course/microservices-with-node-js-and-react/
-### This app consists of 5 servces:
+### This app consists of 5 services:
 1. **posts**: allow user to create post
 2. **query**: get all post created by user 
 3. **moderation**: add status to comment: accepted, pending or rejected. Comment with word "orange" will be rejected
