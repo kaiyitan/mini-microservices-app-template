@@ -16,6 +16,8 @@
 ![image](https://user-images.githubusercontent.com/35439849/101474063-9220f880-3985-11eb-93b0-84d9cd845f0d.png)
 
 ## Simple Architecture of the app
+![image](https://user-images.githubusercontent.com/35439849/103865167-bd227780-50fe-11eb-9e30-9e7dd5062429.png)
+User created post -> postCreated event sent to Event Bus -> Event Bus send the event to all services -> only the service related to the event respond to it (in this case is the query services)
 
 ## How to use the app
 1. Clone the repo
