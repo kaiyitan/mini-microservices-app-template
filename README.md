@@ -20,9 +20,9 @@
 ## How to use the app
 1. Clone the repo
 2. cd to the mini-microservices-app-template directory
-3. Depends on you are windows/Mac/Linux user, go to the following file, add `127.0.0.1 posts.com` at the end
+3. Depends on you are windows/Mac/Linux user, go to the following file, add `127.0.0.1 posts.com` at the end and save it.
    ![image](https://user-images.githubusercontent.com/35439849/103864470-9e6fb100-50fd-11eb-9bfc-3fd773ed56e5.png)
-   
+   ![image](https://user-images.githubusercontent.com/35439849/103864626-e5f63d00-50fd-11eb-81a7-239ef4982552.png)
 4. In the mini-microservices-app-template directory, `run skaffold dev`
 5. Open your browser and go to posts.com. Now, you can create your first post. Noted that this app is a simple template, you need to refresh your browser to get the new added post/comment.
     
